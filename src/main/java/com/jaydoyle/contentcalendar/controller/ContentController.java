@@ -6,6 +6,7 @@ import com.jaydoyle.contentcalendar.model.Status;
 import com.jaydoyle.contentcalendar.repository.ContentRepository;
 import jakarta.validation.Valid;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.server.ResponseStatusException;
 
@@ -48,7 +49,6 @@ public class ContentController {
         repository.save(content);
     }
 
-
     @ResponseStatus(HttpStatus.NO_CONTENT)
     @DeleteMapping("/{id}")
     public void delete(@PathVariable Integer id){
@@ -64,5 +64,6 @@ public class ContentController {
     public List<Content> findByStatus(@PathVariable Status status){
         return repository.listByStatus(status);
     }
+
 
 }//class
